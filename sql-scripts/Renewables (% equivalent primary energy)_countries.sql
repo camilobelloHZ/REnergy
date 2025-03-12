@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS Renewables_countries (
     Renewables FLOAT
 );
 
-INSERT INTO Renewables_countries (% equivalent primary energy)_countries (entity, code, year, Renewables) VALUES
+INSERT INTO Renewables_countries (entity, code, year, Renewables) VALUES
 ('Algeria', 'DZA', 1965, 4.7630677),
 ('Algeria', 'DZA', 1966, 3.518747),
 ('Algeria', 'DZA', 1967, 4.291954),

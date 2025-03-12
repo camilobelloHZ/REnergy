@@ -1,11 +1,11 @@
 
-CREATE TABLE IF NOT EXISTS Electricity from wind - TWh_continents (
+CREATE TABLE IF NOT EXISTS Electricity_TWh_Wind_continents (
     entity VARCHAR(255),
     year INT,
-    Electricity from wind - TWh FLOAT
+    Electricity_TWh_Wind FLOAT
 );
 
-INSERT INTO Electricity from wind - TWh_continents (entity, year, Electricity from wind - TWh) VALUES
+INSERT INTO Electricity_TWh_Wind_continents (entity, year, Electricity_TWh_Wind) VALUES
 ('Africa', 1965, 0.0),
 ('Africa', 1966, 0.0),
 ('Africa', 1967, 0.0),

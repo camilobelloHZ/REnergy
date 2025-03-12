@@ -1,11 +1,11 @@
 
-CREATE TABLE IF NOT EXISTS Solar capacity (total) (GW)_continents (
+CREATE TABLE IF NOT EXISTS Solar_capacity_continents (
     entity VARCHAR(255),
     year INT,
-    Solar capacity (total) (GW) FLOAT
+   Solar_capacity FLOAT
 );
 
-INSERT INTO Solar capacity (total) (GW)_continents (entity, year, Solar capacity (total) (GW)) VALUES
+INSERT INTO Solar_capacity_continents (entity, year, Solar_capacity) VALUES
 ('Africa', 2000, 0.010311),
 ('Africa', 2001, 0.012181001),
 ('Africa', 2002, 0.013901001),

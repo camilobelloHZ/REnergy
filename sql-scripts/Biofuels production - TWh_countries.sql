@@ -1,12 +1,12 @@
 
-CREATE TABLE IF NOT EXISTS Biofuels production - TWh_countries (
+CREATE TABLE IF NOT EXISTS Biofuels_production_TWh_countries (
     entity VARCHAR(255),
     code VARCHAR(10),
     year INT,
-    Biofuels production - TWh FLOAT
+    Biofuels_production_TWh FLOAT
 );
 
-INSERT INTO Biofuels production - TWh_countries (entity, code, year, Biofuels production - TWh) VALUES
+INSERT INTO Biofuels_production_TWh_countries (entity, code, year, Biofuels_production_TWh) VALUES
 ('Argentina', 'ARG', 2000, 0.053206038),
 ('Argentina', 'ARG', 2001, 0.10612133),
 ('Argentina', 'ARG', 2002, 0.10612133),

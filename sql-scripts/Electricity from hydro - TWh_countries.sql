@@ -1,12 +1,12 @@
 
-CREATE TABLE IF NOT EXISTS Electricity from hydro - TWh_countries (
+CREATE TABLE IF NOT EXISTS Electricity_Hydro_TWh_countries (
     entity VARCHAR(255),
     code VARCHAR(10),
     year INT,
-    Electricity from hydro - TWh FLOAT
+    Electricity_Hydro_TWh FLOAT
 );
 
-INSERT INTO Electricity from hydro - TWh_countries (entity, code, year, Electricity from hydro - TWh) VALUES
+INSERT INTO Electricity_Hydro_TWh_countries (entity, code, year, Electricity_Hydro_TWh) VALUES
 ('ASEAN (Ember)', 'nan', 2000, 50.45),
 ('ASEAN (Ember)', 'nan', 2001, 54.33),
 ('ASEAN (Ember)', 'nan', 2002, 53.29),

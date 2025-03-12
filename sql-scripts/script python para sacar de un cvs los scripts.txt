@@ -1,0 +1,126 @@
+import csv
+import pandas as pd
+
+# Ruta del archivo CSV original
+input_file = "biofuel-production.csv"
+
+# Rutas de los archivos de salida
+output_countries_file = "countries.csv"
+output_continents_file = "continents.csv"
+
+# Lista de continentes (sin código)
+continents = [
+    "Africa", "Africa (EI)", "Africa (Ember)", "Asia", "Asia (Ember)", 
+    "Asia Pacific (EI)", "CIS (EI)", "Central America (EI)", 
+    "Eastern Africa (EI)", "Europe", "Europe (EI)", "Europe (Ember)", 
+    "European Union (27)", "G20 (Ember)", "G7 (Ember)", 
+    "High-income countries", "Latin America and Caribbean (Ember)", 
+    "Low-income countries", "Lower-middle-income countries"
+]
+
+# Leer el archivo original y clasificar datos en countries.csv y continents.csv
+with open(input_file, mode="r", encoding="utf-8") as infile:
+    reader = csv.DictReader(infile, delimiter=",")
+    
+    fieldnames = reader.fieldnames
+    if len(fieldnames) < 4:
+        raise ValueError("El archivo CSV no tiene al menos cuatro columnas")
+    fourth_column = fieldnames[3]  # Detecta el nombre dinámico de la cuarta columna
+
+    with open(output_countries_file, mode="w", newline="", encoding="utf-8") as countries_file, \
+         open(output_continents_file, mode="w", newline="", encoding="utf-8") as continents_file:
+
+        countries_writer = csv.DictWriter(countries_file, fieldnames=["entity", "code", "year", fourth_column])
+        continents_writer = csv.DictWriter(continents_file, fieldnames=["entity", "year", fourth_column])
+
+        countries_writer.writeheader()
+        continents_writer.writeheader()
+
+        for row in reader:
+            entity = row["Entity"]
+            if entity in continents:
+                continents_writer.writerow({
+                    "entity": entity,
+                    "year": row["Year"],
+                    fourth_column: row[fourth_column]
+                })
+            else:
+                countries_writer.writerow({
+                    "entity": entity,
+                    "code": row["Code"],
+                    "year": row["Year"],
+                    fourth_column: row[fourth_column]
+                })
+
+print(f"Archivos intermedios generados: {output_countries_file} y {output_continents_file}")
+
+# Proceso para convertir countries.csv a SQL
+df_countries = pd.read_csv(output_countries_file)
+
+column_names = df_countries.columns.tolist()
+if len(column_names) < 4:
+    raise ValueError("El archivo CSV no tiene al menos cuatro columnas")
+fourth_column = column_names[3]  # Nombre dinámico de la cuarta columna
+
+columns_needed = ["entity", "code", "year", fourth_column]
+df_countries = df_countries[columns_needed]
+
+output_sql_countries = f"{fourth_column}_countries.sql"
+table_name_countries = f"{fourth_column}_countries"
+
+create_table_countries = f"""
+CREATE TABLE IF NOT EXISTS {table_name_countries} (
+    entity VARCHAR(255),
+    code VARCHAR(10),
+    year INT,
+    {fourth_column} FLOAT
+);
+"""
+
+insert_countries = f"INSERT INTO {table_name_countries} (entity, code, year, {fourth_column}) VALUES\n"
+values_countries = []
+
+for _, row in df_countries.iterrows():
+    values_countries.append(f"('{row['entity']}', '{row['code']}', {row['year']}, {row[fourth_column]})")
+
+insert_countries += ",\n".join(values_countries) + ";"
+
+with open(output_sql_countries, "w") as file:
+    file.write(create_table_countries + "\n" + insert_countries)
+
+print(f"Archivo SQL generado correctamente: {output_sql_countries}")
+
+# Proceso para convertir continents.csv a SQL
+df_continents = pd.read_csv(output_continents_file)
+
+column_names = df_continents.columns.tolist()
+if len(column_names) < 3:
+    raise ValueError("El archivo CSV no tiene al menos tres columnas")
+third_column = column_names[2]  # Nombre dinámico de la tercera columna
+
+columns_needed = ["entity", "year", third_column]
+df_continents = df_continents[columns_needed]
+
+output_sql_continents = f"{third_column}_continents.sql"
+table_name_continents = f"{third_column}_continents"
+
+create_table_continents = f"""
+CREATE TABLE IF NOT EXISTS {table_name_continents} (
+    entity VARCHAR(255),
+    year INT,
+    {third_column} FLOAT
+);
+"""
+
+insert_continents = f"INSERT INTO {table_name_continents} (entity, year, {third_column}) VALUES\n"
+values_continents = []
+
+for _, row in df_continents.iterrows():
+    values_continents.append(f"('{row['entity']}', {row['year']}, {row[third_column]})")
+
+insert_continents += ",\n".join(values_continents) + ";"
+
+with open(output_sql_continents, "w") as file:
+    file.write(create_table_continents + "\n" + insert_continents)
+
+print(f"Archivo SQL generado correctamente: {output_sql_continents}")

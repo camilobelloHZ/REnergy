@@ -1,0 +1,1 @@
+select * from entity_data where electricity_solar_twh > 1

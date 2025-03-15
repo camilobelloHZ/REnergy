@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/sql-scripts/Biofuels production - TWh_continents.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Biofuels production - TWh_countries.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Electricity from hydro - TWh_continents.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Electricity from hydro - TWh_countries.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Electricity from solar - TWh_continents.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Electricity from solar - TWh_countries.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Electricity from wind - TWh_continents.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Electricity from wind - TWh_countries.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Renewables (% equivalent primary energy)_continents.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Renewables (% equivalent primary energy)_countries.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Solar capacity (total) (GW)_continents.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/Solar capacity (total) (GW)_countries.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/script tabla entities.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql-scripts/script tala entities data.sql" dialect="PostgreSQL" />
+  </component>
+</project>

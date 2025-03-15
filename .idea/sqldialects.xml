@@ -14,6 +14,5 @@
     <file url="file://$PROJECT_DIR$/sql-scripts/Solar capacity (total) (GW)_continents.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/sql-scripts/Solar capacity (total) (GW)_countries.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/sql-scripts/script tabla entities.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/sql-scripts/script tala entities data.sql" dialect="PostgreSQL" />
   </component>
 </project>

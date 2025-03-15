@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="renergy_db@localhost" uuid="a089a4d0-8539-4c94-9f28-c752fdf5791d">
+    <data-source source="LOCAL" name="renergy_db@localhost" uuid="fedb3713-397c-4754-b010-85c5433b9fed">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

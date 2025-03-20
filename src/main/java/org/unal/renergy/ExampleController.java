@@ -11,6 +11,7 @@ import java.util.List;
 public class ExampleController {
 
     private final CountryContinentRepository repository;
+    private final EnergyDataRepository energyDataRepository;
 
     @GetMapping("/")
     public String index() {
@@ -21,5 +22,10 @@ public class ExampleController {
     @GetMapping("/entities")
     public List<CountryContinentEntity> entities() {
         return repository.findAll();
+    }
+
+    @GetMapping("/energy-data")
+    public List<EnergyDataEntity> energyData() {
+        return energyDataRepository.findAll();
     }
 }

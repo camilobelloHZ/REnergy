@@ -6,7 +6,7 @@ import lombok.Data;
 // Entidad que represneta el objeto guardado en base de datos
 @Entity
 @Data
-@Table( name = "entities")
+@Table( name = "countries_continents")
 public class CountryContinentEntity {
 
     @Id
@@ -16,4 +16,6 @@ public class CountryContinentEntity {
     private String name;
 
     private boolean is_country;
+
+    private String code;
 }

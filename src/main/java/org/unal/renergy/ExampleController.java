@@ -2,6 +2,7 @@ package org.unal.renergy;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,5 +28,10 @@ public class ExampleController {
     @GetMapping("/energy-data")
     public List<EnergyDataEntity> energyData() {
         return energyDataRepository.findAll();
+    }
+
+    @GetMapping("/energy-data/{code}")
+    public List<EnergyDataDTO> energyDataByCode(@PathVariable String code) {
+        return energyDataRepository.findByCode(code);
     }
 }

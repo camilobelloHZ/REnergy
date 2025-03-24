@@ -34,4 +34,9 @@ public class ExampleController {
     public List<EnergyDataDTO> energyDataByCode(@PathVariable String code) {
         return energyDataRepository.findByCode(code);
     }
+
+    @GetMapping("/energy-data/{year}/{countryName}")
+    public EnergyDataDTO energyDataByYear(@PathVariable int year, @PathVariable String countryName) {
+        return energyDataRepository.findByYearAndCode(year, countryName);
+    }
 }

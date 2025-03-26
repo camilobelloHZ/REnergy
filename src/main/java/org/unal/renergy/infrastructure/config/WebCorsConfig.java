@@ -1,4 +1,4 @@
-package org.unal.renergy;
+package org.unal.renergy.infrastructure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 @Configuration
-public class Config {
+public class WebCorsConfig {
 
     @Bean
     public CorsFilter corsFilter() {

@@ -7,5 +7,5 @@ spring:
     url: "${DB_URL}"
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate.ddl-auto: update
+    hibernate.ddl-auto: validate
     database: postgresql

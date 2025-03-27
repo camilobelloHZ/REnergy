@@ -26,4 +26,8 @@ public class EnergyCountryContinentFindUseCase {
         return repository.findByCountryContinentName(countryContinentName);
     }
 
+    public List<EnergyCountryContinent> findByYearAndCountryContinentName(int year, String countryContinentName) {
+        return repository.findByYearAndCountryContinentName(year, countryContinentName);
+    }
+
 }

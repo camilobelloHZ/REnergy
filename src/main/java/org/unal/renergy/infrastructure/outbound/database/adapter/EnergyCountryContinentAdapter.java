@@ -39,4 +39,12 @@ public class EnergyCountryContinentAdapter implements EnergyCountryContinentRepo
                 .map(EnergyCountryContinentEntity::toEnergyCountryContinent)
                 .toList();
     }
+
+    @Override
+    public List<EnergyCountryContinent> findByYearAndCountryContinentName(int countryContinentYear, String countryContinentName) {
+        return dataAccess.findByYearAndCountryContinent_Name(countryContinentYear, countryContinentName)
+                .stream()
+                .map(EnergyCountryContinentEntity::toEnergyCountryContinent)
+                .toList();
+    }
 }

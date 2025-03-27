@@ -9,4 +9,5 @@ public interface EnergyCountryContinentRepository {
     List<EnergyCountryContinent> findAll();
     Optional<EnergyCountryContinent> findById(Long id);
     List<EnergyCountryContinent> findByCountryContinentName(String countryContinentName);
+    List<EnergyCountryContinent> findByYearAndCountryContinentName(int countryContinentYear, String countryContinentName);
 }

@@ -26,4 +26,10 @@ public class EnergyCountryContinentController {
     public List<EnergyCountryContinent> findByCountryContinentName(@PathVariable(name = "countryContinentName") String countryContinentName) {
         return findUseCase.findByCountryContinentName(countryContinentName);
     }
+
+    @GetMapping("/{year}/country-continent/{countryContinentName}")
+    public List<EnergyCountryContinent> getByYearAndCountryContinentName(@PathVariable(name = "year") Integer year,
+                                                                         @PathVariable(name = "countryContinentName") String countryContinentName) {
+        return findUseCase.findByYearAndCountryContinentName(year, countryContinentName);
+    }
 }

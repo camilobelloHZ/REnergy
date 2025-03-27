@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface EnergyCountryContinentDataAccess extends JpaRepository<EnergyCountryContinentEntity, Long> {
     List<EnergyCountryContinentEntity> findByCountryContinent_Name(String countryContinentName);
+    List<EnergyCountryContinentEntity> findByYearAndCountryContinent_Name(int year, String countryContinentName);
 }

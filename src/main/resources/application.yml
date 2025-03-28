@@ -9,3 +9,8 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate.ddl-auto: validate
     database: postgresql
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
